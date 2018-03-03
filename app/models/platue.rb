@@ -1,0 +1,2 @@
+class Platue < ApplicationRecord
+end
