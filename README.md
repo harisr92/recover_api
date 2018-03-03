@@ -1,24 +1,59 @@
-# README
+# Rover API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A squad of robotic rovers are to be landed by NASA on a plateau on Mars.
 
-Things you may want to cover:
+This plateau, which is curiously rectangular, must be navigated by the rovers so that their on board cameras can get a complete view of the surrounding terrain to send back to Earth.
 
-* Ruby version
+A rover's position is represented by a combination of an x and y co-ordinates and a letter representing one of the four cardinal compass points (N, S, E or W) . The plateau is divided up into a grid to simplify navigation. An example position might be 0, 0, N, which means the rover is in the bottom left corner and facing North.
 
-* System dependencies
+In order to control a rover, NASA sends a simple string of letters. The possible letters are 'L', 'R' and 'M'. 'L' and 'R' makes the rover spin 90 degrees left or right respectively, without moving from its current spot.
 
-* Configuration
+'M' means move forward one grid point, and maintain the same heading.
 
-* Database creation
+Assume that the square directly North from (x, y) is (x, y+1).
 
-* Database initialization
+Input:
 
-* How to run the test suite
+The first line of input is the upper-right coordinates of the plateau, the lower-left coordinates are assumed to be 0,0.
 
-* Services (job queues, cache servers, search engines, etc.)
+The rest of the input is information pertaining to the rovers that have been deployed. Each rover has two lines of input. The first line gives the rover's position, and the second line is a series of instructions telling the rover how to explore the plateau.
 
-* Deployment instructions
+The position is made up of two integers and a letter separated by spaces, corresponding to the x and y co-ordinates and the rover's orientation.
 
-* ...
+Each rover will be finished sequentially, which means that the second rover won't start to move until the first one has finished moving.
+
+## Ruby version
+ * 2.4.1
+
+## Rails version
+ * 5.1.4
+
+## How to perform API
+
+  ### For landing and changing posintion of rover
+    ```POST
+    {
+      "plateau": "5 5",
+      "state": "1 2 N",
+      "move": "LMLMLMLMM"
+    }
+    ```
+    
+    * response
+    ```
+    {
+      "state": "1 3 N",
+      "plateau": 12,
+      "message": "Success"
+    }```
+  ### For seeing the current state of the rover
+    ```GET URL?plateau_id=12```
+    Here 12 is id
+    
+    * response
+    ```{
+          "state": "1 3 N"
+        }```
+  ### For destroy
+    ```DELETE URL?plateau_id=12```
+    Here 12 is id of platue
