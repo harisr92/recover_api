@@ -3,6 +3,7 @@ class CreatePlatues < ActiveRecord::Migration[5.1]
     create_table :platues do |t|
       t.integer :width
       t.integer :height
+      t.string :ip_addr
 
       t.timestamps
     end

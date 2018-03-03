@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20180303094839) do
   create_table "platues", force: :cascade do |t|
     t.integer "width"
     t.integer "height"
+    t.string "ip_addr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180303094839) do
     t.integer "x"
     t.integer "y"
     t.integer "platue_id"
+    t.string "face"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

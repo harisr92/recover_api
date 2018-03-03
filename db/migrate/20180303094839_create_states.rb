@@ -4,6 +4,7 @@ class CreateStates < ActiveRecord::Migration[5.1]
       t.integer :x
       t.integer :y
       t.integer :platue_id
+      t.string :face
 
       t.timestamps
     end
