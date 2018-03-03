@@ -2,10 +2,29 @@
 
 one:
   x: 1
-  'y': 1
+  y: 2
+  face: 'N'
   platue_id: 1
 
 two:
+  x: 3
+  y: 3
+  face: 'E'
+  platue_id: 1
+
+invalid1:
+  x: 0
+  y: 0
+  platue_id: 1
+
+invalid2:
+  x: -1
+  y: 0,
+  face: 'N'
+  platue_id: 1
+
+invalid3:
   x: 1
-  'y': 1
+  y: -1,
+  face: 'N'
   platue_id: 1
