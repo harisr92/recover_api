@@ -81,15 +81,7 @@ class HomeController < ApplicationController
   def move(pos)
     state = @platue.states.first
     return @error = state.errors unless pos == 'M'
-    if state.face == 'N'
-      state.update(y: state.y + 1)
-    elsif state.face == 'S'
-      state.update(y: state.y - 1)
-    elsif state.face == 'E'
-      state.update(x: state.x + 1)
-    elsif state.face == 'W'
-      state.update(x: state.x - 1)
-    end
+    state.update(state.state_change[state.face])
     @errors = state.errors
   end
 

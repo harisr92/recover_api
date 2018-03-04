@@ -5,6 +5,11 @@ class State < ApplicationRecord
 
   before_save :validate_pos
 
+  def state_change
+    { 'N' => { y: y + 1 }, 'S' => { y: y - 1 }, 'E' => { x: x + 1 },
+      'W' => { x: x - 1 } }
+  end
+
   private
 
   def validate_pos
